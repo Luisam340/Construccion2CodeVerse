@@ -3,15 +3,15 @@ package app.code.verse.domain.model.utils;
 import java.time.LocalDate;
 
 public class ValidateDataUtil {
-    public static void validateString(String field, String fieldName) {
+    public static void validateString(String field, String message) {
         if (field == null || field.isBlank()) {
-            throw new IllegalArgumentException("El campo " + fieldName + " no puede ser nulo o vacío");
+            throw new IllegalArgumentException(message);
         }
     }
 
-    public static void validateLocalDate(LocalDate localDate, String fieldName) {
+    public static void validateLocalDate(LocalDate localDate, String message) {
         if (localDate == null || localDate.isAfter(LocalDate.now().plusYears(150))) {
-            throw new IllegalArgumentException("La fecha de " + fieldName + " es inválida");
+            throw new IllegalArgumentException(message);
         }
     }
 
