@@ -2,30 +2,30 @@ package app.code.verse.domain.services;
 
 import app.code.verse.domain.model.Employee;
 import app.code.verse.domain.model.utils.ValidateDataUtil;
-import app.code.verse.domain.ports.HumanResourcePort;
+import app.code.verse.domain.ports.EmployeePort;
 
 public class CreateEmployee {
-    private ValidateDataUtil validateDataUtil;
-    private HumanResourcePort humanResourcesPort;
+    private EmployeePort employeePort;
+    private FindEmployee findEmployee;
 
-    public CreateEmployee(Employee employeeInformation) {
-        validateDataUtil.validateString(employeeInformation.getName(), "nombre del empleado");
-        validateDataUtil.validateString(employeeInformation.getIdNumber(),
-                "número de identificación del empleado");
-        validateDataUtil.validateString(employeeInformation.getEmail(), "correo electrónico del empleado");
-        validateDataUtil.validateString(employeeInformation.getAddress(), "dirección del empleado");
-        validateDataUtil.validateLocalDate(employeeInformation.getBirthDate(),
-                "fecha de nacimiento del empleado");
-        validateDataUtil.validateMaximumSize(employeeInformation.getIdNumber(),
-                "número de identificación del empleado", 10);
-        validateDataUtil.validateMaximumSize(employeeInformation.getEmail(), "correo electrónico del empleado",
-                50);
-        validateDataUtil.validateMaximumSize(employeeInformation.getAddress(), "dirección del empleado", 30);
-        if (humanResourcesPort.findByIdNumber(employeeInformation.getIdNumber())) {
-            throw new IllegalArgumentException("Este número de identificación ya está registrado");
+    public void createEmployee(Employee employee) throws Exception {
+        ValidateDataUtil.validateString(employee.getName(), "El nombre del empleado no puede ser nulo o vacío");
+        ValidateDataUtil.validateString(employee.getIdNumber(), "EL número de identificación no puede ser nulo o vacío");
+        ValidateDataUtil.validateString(employee.getEmail(), "El correo electrónico no puede ser nulo o vacío");
+        ValidateDataUtil.validateString(employee.getAddress(), "La dirección no puede ser nula o vacía");
+        ValidateDataUtil.validateString(employee.getUserName(), "El nombre de usuario no puede ser nulo o vacío");
+        ValidateDataUtil.validateString(employee.getPassword(), "La contraseña no puede ser nula o vacía");
+        ValidateDataUtil.validateString(employee.getRole(), "El rol no puede ser nulo o vacío");
+        ValidateDataUtil.validateLocalDate(employee.getBirthDate(), "La fecha de nacimiento  no puede ser nula o vacía");
+        ValidateDataUtil.validateMaximumSize(employee.getIdNumber(), "número de identificación", 10);
+        ValidateDataUtil.validateMaximumSize(employee.getEmail(), "correo electrónico", 50);
+        ValidateDataUtil.validateMaximumSize(employee.getAddress(), "dirección", 30);
+        if (findEmployee.existsById(employee)) {
+            throw new IllegalArgumentException("El empleado ya existe");
         }
-
-        humanResourcesPort.createEmployee(employeeInformation);
-
+        if (employeePort.existsByUserName(employee.getUserName())) {
+            throw new Exception("Ese nombre de usuario ya está en uso");
+        }
+        employeePort.save(employee);
     }
 }
