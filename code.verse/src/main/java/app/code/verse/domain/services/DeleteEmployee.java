@@ -9,7 +9,7 @@ public class DeleteEmployee {
     private FindEmployee findEmployee;
 
     public void delete(Employee employee) throws Exception {
-        ValidateDataUtil.validateString(employee.getIdNumber(), "EL número de identificación no puede ser nulo o vacío");
+        ValidateDataUtil.validateString(employee.getIdNumber(), "EL número de identificación no puede estar vacío");
         if (findEmployee.existsById(employee)){
             employeePort.delete(employee);
         }
