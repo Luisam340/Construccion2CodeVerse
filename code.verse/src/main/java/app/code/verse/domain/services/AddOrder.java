@@ -1,7 +1,9 @@
 package app.code.verse.domain.services;
 
-public class AddOrder {
-        void execute(Order order);
-    }
+import app.code.verse.domain.model.Order;
 
+public class AddOrder {
+    void execute(Order order) {
+
+    }
 }

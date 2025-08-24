@@ -1,6 +1,5 @@
-package app.code.verse.domain.services;
+package app.code.verse.application.usecases;
 
-import app.code.verse.domain.model.Employee;
 import app.code.verse.domain.model.Patient;
 
 public class ListPatient {
