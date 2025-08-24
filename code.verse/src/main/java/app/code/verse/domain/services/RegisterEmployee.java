@@ -1,5 +1,6 @@
 package app.code.verse.domain.services;
 
+import app.code.verse.application.usecases.FindEmployee;
 import app.code.verse.domain.model.Employee;
 import app.code.verse.domain.model.utils.ValidateDataUtil;
 import app.code.verse.domain.ports.EmployeePort;

@@ -1,4 +1,4 @@
-package app.code.verse.domain.services;
+package app.code.verse.application.usecases;
 
 import app.code.verse.domain.model.EmergencyContact;
 import app.code.verse.domain.ports.EmergencyContactPort;
