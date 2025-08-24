@@ -1,5 +1,7 @@
 package app.code.verse.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 
 
@@ -8,8 +10,10 @@ public class Person {
     private String idNumber;
     private String email;
     private String phoneNumber;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate birthDate;
     private String address;
+    private String type;
 
     public Person(){}
 
@@ -59,5 +63,13 @@ public class Person {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
