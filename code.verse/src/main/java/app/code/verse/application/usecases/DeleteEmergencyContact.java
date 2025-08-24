@@ -1,7 +1,8 @@
-package app.code.verse.domain.services;
+package app.code.verse.application.usecases;
 
 import app.code.verse.domain.model.utils.ValidateDataUtil;
 import app.code.verse.domain.ports.EmergencyContactPort;
+import app.code.verse.domain.services.FindEmergencyContact;
 
 public class DeleteEmergencyContact {
     private EmergencyContactPort emergencyContactPort;

@@ -1,8 +1,9 @@
-package app.code.verse.domain.services;
+package app.code.verse.application.usecases;
 
 import app.code.verse.domain.model.Patient;
 import app.code.verse.domain.model.utils.ValidateDataUtil;
 import app.code.verse.domain.ports.PatientPort;
+import app.code.verse.domain.services.FindPatient;
 
 public class UpdatePatient {
     private FindPatient findPatient;
