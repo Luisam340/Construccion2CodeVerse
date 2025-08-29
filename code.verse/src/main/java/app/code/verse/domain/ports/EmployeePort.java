@@ -10,5 +10,6 @@ public interface EmployeePort {
     void delete(Employee employee) throws Exception;
     void update(Employee employee) throws Exception;
     Employee findByIdNumber(String idNumber);
+    Employee findByUserName(String unerName);
 
 }

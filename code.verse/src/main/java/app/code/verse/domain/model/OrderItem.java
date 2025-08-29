@@ -4,6 +4,8 @@ public abstract class OrderItem {
         protected int itemNumber;
         protected double cost;
 
+        public  OrderItem(){}
+
         public OrderItem(int itemNumber, double cost) {
             this.itemNumber = itemNumber;
             this.cost = cost;
@@ -12,5 +14,3 @@ public abstract class OrderItem {
         public int getItemNumber() { return itemNumber; }
         public double getCost() { return cost; }
     }
-
-}

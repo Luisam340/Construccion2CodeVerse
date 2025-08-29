@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Order {
     public Order() {
-
+    }
             private String orderNumber;
             private String patientId;
             private String doctorId;
@@ -47,6 +47,3 @@ public class Order {
             public LocalDate getCreationDate() { return creationDate; }
             public List<OrderItem> getItems() { return items; }
         }
-
-    }
-}
