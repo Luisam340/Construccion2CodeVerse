@@ -2,6 +2,8 @@ package app.code.verse.domain.model;
 
 public class DiagnosticTestOrderItem extends OrderItem {
     public DiagnosticTestOrderItem() {
+        super();
+    }
             private String testName;
             private int quantity;
             private boolean requiresSpecialist;
@@ -21,5 +23,3 @@ public class DiagnosticTestOrderItem extends OrderItem {
             public String getSpecialistType() { return specialistType; }
         }
 
-    }
-}
